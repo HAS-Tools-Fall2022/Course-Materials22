@@ -1,6 +1,6 @@
 # HAS Tools: Course Materials for Fall 2022
 
-This repository contains cours contens for HWRS 401/501 "Tools for Data Handling and Analysis in Water, Weather, & Climate" also known as HAS Tools.
+This repository contains coures contents for HWRS 401/501 "Tools for Data Handling and Analysis in Water, Weather, & Climate" also known as "HAS Tools".
 The structure of this page is roughly as follows:
 
  - `admin`: Contains details related to administration of the class including the syllabus and notes about structuring the course
