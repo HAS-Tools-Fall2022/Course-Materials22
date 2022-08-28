@@ -12,3 +12,7 @@ The structure of this page is roughly as follows:
  I will supplement in-person lectures with video lectures recorded and uploaded to YouTube. The lectures can be found here:
  
   - [YouTube lectures](https://www.youtube.com/playlist?list=PL7bvZx2_0uUobn9riANO9nEPF1Pe2dClB)
+
+## More to come
+
+As we come together throughout the semester more details and resources will be shared here - keep an eye out! 👀
