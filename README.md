@@ -9,9 +9,12 @@ The structure of this page is roughly as follows:
  
  ## Video lectures
  
- I will supplement in-person lectures with video lectures recorded and uploaded to YouTube. The lectures can be found here:
+ I will supplement in-person lectures with video lectures recorded and uploaded to YouTube. Classroom lectures will be shared via zoom, and will auto-delete after the semester. The lectures can be found here:
  
   - [YouTube lectures](https://www.youtube.com/playlist?list=PL7bvZx2_0uUobn9riANO9nEPF1Pe2dClB)
+  - [Classroom lecture Aug 23](https://arizona.zoom.us/rec/share/sPQwhCi7LLcGRaY-WRT_ODvW3Z7yI4eUBT2z8bKqBL5tixuQDJ_V1FQtw1eE2_dm.hWRwQHvhjVJjG6on)
+  - [Classroom lecture Sept 6](https://arizona.zoom.us/rec/share/Vkq2-VtEDgLzYpK8dqt8Y92wOr_6_4_KOV_h9deFhTNz-rsWCxYeIh7s4z3RcN64.AvhYOxR-dnINiKU7)
+  - [Classroom lecture Sept 8](https://arizona.zoom.us/rec/share/D6eL-cOKf85VOUqj5pgixbwqju4QLBb8cn4XVhMFKMOQOulgt0DiZDyvJglGRL3C.rzeBS_udeAulcBxW?startTime=1662649809000)
 
 ## Useful links
 Throughout the course we'll be amassing a lot of different resources that you can use. 
