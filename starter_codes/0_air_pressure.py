@@ -25,5 +25,4 @@ p_list = []
 for height in h_list:
     p_h = air_pressure_at_height(height)
     p_list.append(p_h)
-    print(height, '      ', p_h)
 # %%
