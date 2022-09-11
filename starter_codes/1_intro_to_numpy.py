@@ -105,6 +105,7 @@ sample_2d = np.array(
      [3,4,5]]
 )
 print(sample_1d)
+print()
 print(sample_2d)
 print()
 
@@ -164,6 +165,21 @@ sequence_1[0]
 sequence_1[-1]
 
 # %%
+# You can also "slice" which is basically indexing
+# multiple values. The syntax for slicing is like so
+start = 0
+stop = 5
+step = 2
+print(sequence_1[start:stop:step])
+
+# Additionally you can create a `slice` object which
+# can be convenient because you can use it multiple times
+my_slice = slice(start, stop, step)
+print(sequence_1[my_slice])
+print(sequence_2[my_slice])
+
+
+# %%
 # For multidimensional arrays indexing works a 
 # bit differently
 increasing_matrix = np.arange(0, 9).reshape((3,3))
@@ -176,12 +192,23 @@ print()
 print(increasing_matrix[1,2])
 print()
 # Get the first column, the `:` means "everything"
+# It is equivalent to `slice(None, None, None)`
 print(increasing_matrix[:, 0])
 
 # %%
-# Arrays can be of arbitrarily large dimension (up to I think 64)
+# Arrays can be of large dimension 
+# (up to, I think, 64)
 array_5d = np.arange(0, 3**5).reshape((3,3,3,3,3))
 print(array_5d.shape, array_5d.ndim)
 
 
+# %%
+# Numpy also features some rudimentary ways of 
+# reading data from files. This is how you'll complete
+# your forecasting assignment. I've downloaded the daily
+# streamflow in cubic feet per second for the last thirty 
+# days (ending Sept 10) and placed it in the `data` directory
+# 
+filename ='../data/verde_river_daily_flow_cfs.csv'
+np.loadtxt(filename, delimiter=',', usecols=[1])
 # %%

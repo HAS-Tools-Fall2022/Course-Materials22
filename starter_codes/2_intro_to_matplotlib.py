@@ -195,7 +195,7 @@ plt.colorbar(
 # I have been using matplotlib since ~2012.
 fig, ax = plt.subplots()
 
-img = ax.imshow(pressures) 
+img = ax.imshow(pressures, cmap='turbo')
 fig.colorbar(
     img, 
     fraction=0.02,
@@ -214,7 +214,4 @@ yticks = np.arange(25, len(temps), 50)
 ax.set_yticks(yticks)
 ax.set_yticklabels(temps[yticks])
 ax.set_ylabel('Temperature [K]')
-
-# %%
-len(temps)
 # %%
