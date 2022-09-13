@@ -114,7 +114,7 @@ plt.ylabel('Air pressure [pa]')
 # This is awesome, but we're back to the fact that
 # if you handed this to someone else they would not have 
 # a way of knowing what the different lines are for.
-# We can remedy this by adding labels to each of the calls
+# We can remedy this by adding `label`s to each of the calls
 # to `plt.plot`. Once those have been added we just call
 # `plt.legend()` after we are done plotting the lines to
 # add it to the figure

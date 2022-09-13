@@ -35,6 +35,7 @@ def air_pressure_at_height(h):
     p_h = p0 * np.exp(ratio)
     return p_h
 
+# Heights to calculate pressure at
 start = 0
 end = 20000
 step = 1
@@ -52,7 +53,6 @@ t1 = time.time()
 base_python_time = t1-t0
 print("With plain python this took:", base_python_time, " seconds")
 
-
 # %%
 t0 = time.time()
 h_array = np.arange(start, end, step)
@@ -61,7 +61,7 @@ p_array = air_pressure_at_height(h_array)
 t1 = time.time()
 
 numpy_time = t1-t0
-print("With plain python this took:", numpy_time, " seconds")
+print("With numpy this took:", numpy_time, " seconds")
 print("Numpy version is ", base_python_time/numpy_time, " times faster")
 
 
@@ -86,18 +86,23 @@ ones_matrix = np.ones(array_shape)
 print(ones_matrix)
 print(ones_matrix.shape)
 print()
+
+
+#%%
 # Numpy also makes math easier to do, now you can just 
 # multiply numbers and any ndarray object
 print(0.1 * ones_matrix)
 print()
 
+
+#%%
 # You can also operate on arrays with other numpy functions
 print(np.sum(ones_matrix))
 print(np.sum(ones_matrix, axis=0))
 
-# %%
-# Some really handy functions:
 
+# %%
+# First we'll cover some handy functions:
 # Create an array from a list
 sample_1d = np.array([0,1,2])
 sample_2d = np.array(
@@ -109,11 +114,13 @@ print()
 print(sample_2d)
 print()
 
+
 # %%
 # Create an array of all zeros
 zeros = np.zeros(array_shape)
 print(zeros)
 print()
+
 
 # %%
 # Arange is just like the regular `range` function
@@ -121,6 +128,7 @@ print()
 sequence_1 = np.arange(start, end, step)
 print(sequence_1)
 print()
+
 
 # %%
 # Linspace is the counterpart to `arange`. If you know
@@ -131,10 +139,12 @@ sequence_2 = np.linspace(0, np.pi, 5)
 print(sequence_2)
 print()
 
+
 # %%
 # You can create random numbers too
 random_matrix = np.random.random(array_shape)
 print(random_matrix)
+
 
 # %%
 # Numpy is really good for linear algebra
@@ -157,6 +167,7 @@ np.exp(random_matrix)
 np.sin(random_matrix)
 np.log(random_vector)
 np.max(random_matmul)
+
 
 # %%
 # Finally, let's talk about slicing and indexing
@@ -198,7 +209,9 @@ print(increasing_matrix[:, 0])
 # %%
 # Arrays can be of large dimension 
 # (up to, I think, 64)
-array_5d = np.arange(0, 3**5).reshape((3,3,3,3,3))
+length = 3
+dim = 5
+array_5d = np.arange(0, length**dim).reshape(dim * (length,))
 print(array_5d.shape, array_5d.ndim)
 
 
@@ -207,8 +220,16 @@ print(array_5d.shape, array_5d.ndim)
 # reading data from files. This is how you'll complete
 # your forecasting assignment. I've downloaded the daily
 # streamflow in cubic feet per second for the last thirty 
-# days (ending Sept 10) and placed it in the `data` directory
-# 
-filename ='../data/verde_river_daily_flow_cfs.csv'
-np.loadtxt(filename, delimiter=',', usecols=[1])
+# days (ending Sept 10) and placed it in the `data` directory.
+# But because I posted it on GitHub we can open it directly
+# over the internet.
+filename =('https://raw.githubusercontent.com/HAS-Tools-Fall2022'
+           '/Course-Materials22/main/data/verde_river_daily_flow_cfs.csv')
+flows = np.loadtxt(
+    filename,           # The location of the text file
+    delimiter=',',      # character which splits data into groups
+    usecols=1           # Just take column 1, which is the flows
+)
+print(flows)
 # %%
+
