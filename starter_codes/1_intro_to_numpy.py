@@ -38,16 +38,16 @@ def air_pressure_at_height(h):
 # Heights to calculate pressure at
 start = 0
 end = 20000
-step = 1
-
+step = 1\
 
 # %%
-t0 = time.time()
+t0 = time.time() #cheks the time for the code 
 h_list = range(start, end, step)
-p_list = []
-for height in h_list:
+p_list = [] #create presure list
+
+for height in h_list: 
     p_h = air_pressure_at_height(height)
-    p_list.append(p_h)
+    p_list.append(p_h) 
 
 t1 = time.time()
 base_python_time = t1-t0
@@ -57,6 +57,11 @@ print("With plain python this took:", base_python_time, " seconds")
 t0 = time.time()
 h_array = np.arange(start, end, step)
 p_array = air_pressure_at_height(h_array)
+
+#numpy array insted of writing a loop makes the computation run quicker
+#numpy is an array based library
+#is a collecton of numbers with somewhay to operate all at once
+
 
 t1 = time.time()
 
@@ -73,13 +78,17 @@ print("Numpy version is ", base_python_time/numpy_time, " times faster")
 # NOTE: The length of the shape is always equal to the number of dimensions
 print(type(h_array))
 print(h_array.ndim)
-print(h_array.shape)
+print(h_array.shape) 
 print(len(h_array.shape) == h_array.ndim)
-
+#nda n dimational array
+#a list of vector has dimension 1
+#a matrix would be two dimentsional 
+#if you arrange the number physically youll see the diferent 
 
 # %%
 # What else can you do with numpy? Basically anything with numbers!
 array_shape = (5, 5)
+#two dimentional array
 
 # Create an array of all ones with a specific shape
 ones_matrix = np.ones(array_shape)
@@ -93,12 +102,12 @@ print()
 # multiply numbers and any ndarray object
 print(0.1 * ones_matrix)
 print()
-
+# a lot of built in functions 
 
 #%%
 # You can also operate on arrays with other numpy functions
 print(np.sum(ones_matrix))
-print(np.sum(ones_matrix, axis=0))
+print(np.sum(ones_matrix, axis=1))
 
 
 # %%
@@ -112,7 +121,8 @@ sample_2d = np.array(
 print(sample_1d)
 print()
 print(sample_2d)
-print()
+print() #creates a space bettewn the resutls
+print(np.sum(sample_2d, axis=1))
 
 
 # %%
@@ -120,6 +130,8 @@ print()
 zeros = np.zeros(array_shape)
 print(zeros)
 print()
+
+
 
 
 # %%
@@ -152,7 +164,7 @@ vector_shape = array_shape[0]
 random_vector = np.random.random(vector_shape)
 random_matrix_2 = np.random.random(array_shape)
 
-# For example the dot product
+# For example the dot product   
 random_dot = np.dot(random_vector, random_matrix_2)
 
 # Or matrix multiplication
@@ -193,8 +205,9 @@ print(sequence_2[my_slice])
 # %%
 # For multidimensional arrays indexing works a 
 # bit differently
-increasing_matrix = np.arange(0, 9).reshape((3,3))
+increasing_matrix = np.arange(0, 9).reshape((3,3)) #reare for a 1 dim array to a  2 dim array
 print(increasing_matrix)
+#indexing on a two dimientional array makes it 
 print()
 # Get the first row
 print(increasing_matrix[0])
