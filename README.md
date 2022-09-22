@@ -16,6 +16,7 @@ The structure of this page is roughly as follows:
   - [Classroom lecture Sept 6](https://arizona.zoom.us/rec/share/Vkq2-VtEDgLzYpK8dqt8Y92wOr_6_4_KOV_h9deFhTNz-rsWCxYeIh7s4z3RcN64.AvhYOxR-dnINiKU7)
   - [Classroom lecture Sept 8](https://arizona.zoom.us/rec/share/D6eL-cOKf85VOUqj5pgixbwqju4QLBb8cn4XVhMFKMOQOulgt0DiZDyvJglGRL3C.rzeBS_udeAulcBxW?startTime=1662649809000)
   - [Classroom lecture Sept 20](https://arizona.zoom.us/rec/share/5SgCFidTZ5CmtQUH-o1BPFzt2HlnpDyat0h8x5GY9OZOigHTYVZKXY_qhF75ECSt.PrIlPHnyZuPJKLT5)
+  - [Classroom lecture Sept22](https://arizona.zoom.us/rec/share/rWzfGrwEhoMwsalwYBhnIGDp9mv3V0B0Y8Ek-w2M0eWqJKdDLAkOjHIFYEcX2JI.AO97-ltkYlo8PmhT?startTime=1663859319000)
 
 ## Useful links
 Throughout the course we'll be amassing a lot of different resources that you can use. 
