@@ -98,6 +98,7 @@ for sample_size in all_samples_sizes:
 
     # INNER LOOP
     # Actually sample the points and 
+    # calculate the radius
     for i in range(sample_size):
         x, y, r = random_point_and_radius()
         all_x.append(x)
