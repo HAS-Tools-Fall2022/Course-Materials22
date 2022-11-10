@@ -12,15 +12,15 @@ import matplotlib.pyplot as plt
 # This can be done by specifying the url to the shapefile, but
 # prepending it with `/vsicurl`
 az = gpd.read_file(
-    './arizona_shapefile/tl_2016_04_cousub.shp'
+    '../data/arizona_shapefile/tl_2016_04_cousub.shp'
 )
 
 gages = gpd.read_file(
-    './gagesii_shapefile/gagesII_9322_sept30_2011.shp'
+    '../data/gagesii_shapefile/gagesII_9322_sept30_2011.shp'
 )
 
 huc8 = gpd.read_file(
-    './arizona_huc8_shapefile/WBDHU8.shp'
+    '../data/arizona_huc8_shapefile/WBDHU8.shp'
 )
 
 #%%
@@ -185,11 +185,11 @@ verde_df.head()
 # From step 6
 station_name = 'PARIA RIVER AT LEES FERRY, AZ'
 is_the_gage = az_gages['STANAME'] == station_name
-sonoita_gage = az_gages.loc[is_the_gage]
+paria_gage = az_gages.loc[is_the_gage]
 
 # From step 8
-sonoita_id = sonoita_gage['STAID']
-site = sonoita_id.values[0]
+paria_id = paria_gage['STAID']
+site = paria_id.values[0]
 other_gage_df = open_usgs_data(site, begin_date, end_date)
 print(verde_df['streamflow'].mean(), other_gage_df['streamflow'].mean())
 
@@ -216,19 +216,23 @@ print(verde_df['streamflow'].mean(), other_gage_df['streamflow'].mean())
 
 number_gages_in_huc = []
 for i, huc in huc8.iterrows():
-    print(i, huc['name'])
     # TODO: Your code here
-    clipped_gages = None
+    clipped_gages = az_gages.clip(huc.geometry)
+    #print(i, huc['name'], len(clipped_gages))
+    number_gages_in_huc.append(len(clipped_gages))
 
 # TODO: Your code here
+huc8['number_gauges'] = number_gages_in_huc
 
 # %%
 # Step 11: Finally, plot the number of gages in
 # each HUC - and don't forget to set `add_legend=True`!
 # Use the colormap "Blues", and also plot the Arizona
 # outline on top
-
+ax = huc8.plot(column='number_gauges', cmap='Blues', legend=True)
+az.plot(ax=ax, facecolor='none', edgecolor='black')
 # TODO: Your code here
 
 # %%
 # CONGRATULATIONS, you're finished!
+# %%
