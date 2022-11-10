@@ -12,21 +12,15 @@ import matplotlib.pyplot as plt
 # This can be done by specifying the url to the shapefile, but
 # prepending it with `/vsicurl`
 az = gpd.read_file(
-    '/vsicurl/https://github.com/HAS-Tools-Fall2022'
-    '/Course-Materials22/raw/main/data/arizona_shapefile'
-    '/tl_2016_04_cousub.shp'
+    './arizona_shapefile/tl_2016_04_cousub.shp'
 )
 
 gages = gpd.read_file(
-    '/vsicurl/https://github.com/HAS-Tools-Fall2022'
-    '/Course-Materials22/raw/main/data/gagesii_shapefile/'
-    'gagesII_9322_sept30_2011.shp'
+    './gagesii_shapefile/gagesII_9322_sept30_2011.shp'
 )
 
 huc8 = gpd.read_file(
-    '/vsicurl/https://github.com/HAS-Tools-Fall2022'
-    '/Course-Materials22/raw/main/data/arizona_huc8_shapefile/'
-    'WBDHU8.shp'
+    './arizona_huc8_shapefile/WBDHU8.shp'
 )
 
 #%%
@@ -34,7 +28,7 @@ huc8 = gpd.read_file(
 # CRS as the `az` geodataframe
 
 # TODO: Your code here
-gages = None
+gages = gages.to_crs(az.crs)
 
 #%%
 # Step 2: The various polygons in the Arizona shapefile
@@ -47,8 +41,8 @@ gages = None
 # geodataframe with only a single geometry.
 
 # TODO: Your code here
-az = None
-
+az = az.dissolve()
+az.plot()
 
 #%%
 # Step 3: Pull out only the gages in Arizona from 
@@ -56,7 +50,8 @@ az = None
 # In GIS-language this is called "clipping" 
 
 # TODO: Your code here
-az_gages = None
+az_gages = gages.clip(az)
+az_gages.plot()
 
 # %%
 # Step 4: Make a plot showing Arizona in "lightgrey"
@@ -71,7 +66,8 @@ az_gages = None
 #       easier to see them.
 
 # TODO: Your code here
-ax = None
+ax = az.plot(color='lightgrey')
+az_gages.plot(color='crimson', ax=ax, markersize=3)
 
 # %%
 # Step 5: I also gave you a dataset of watershed
@@ -91,7 +87,9 @@ ax = None
 #       inside of your second plot command.
 
 # TODO: Your code here
-ax = None
+ax = huc8.plot(color='lightgrey')
+az.plot(ax=ax, color='none', edgecolor='black')
+az_gages.plot(color='crimson', ax=ax)
 
 #%%
 # Step 6:  For this step, Iwant you to plot the location
@@ -107,8 +105,11 @@ ax = None
 # still appear as dots.
 name = "VERDE RIVER NEAR CAMP VERDE, AZ"
 # TODO: Your code here
-is_the_gage = None
-verde_gage = None
+is_the_gage = az_gages['STANAME'] == name
+
+# Found solution : 
+#  https://stackoverflow.com/questions/17071871/how-do-i-select-rows-from-a-dataframe-based-on-column-values
+verde_gage = az_gages.loc[is_the_gage]
 
 # Plotting code, you should not have to modify
 ax = huc8.plot(color='lightgrey')
@@ -166,7 +167,7 @@ begin_date = '2012-10-01'
 end_date = '2022-09-30'
 
 # TODO: Your code here
-station_id = None
+station_id = verde_gage['STAID']
 
 site = station_id.values[0]
 verde_df = open_usgs_data(site, begin_date, end_date)
@@ -181,7 +182,16 @@ verde_df.head()
 # streamflows by printing them out.
 
 # TODO: Your code here
-station_name = None
+# From step 6
+station_name = 'PARIA RIVER AT LEES FERRY, AZ'
+is_the_gage = az_gages['STANAME'] == station_name
+sonoita_gage = az_gages.loc[is_the_gage]
+
+# From step 8
+sonoita_id = sonoita_gage['STAID']
+site = sonoita_id.values[0]
+other_gage_df = open_usgs_data(site, begin_date, end_date)
+print(verde_df['streamflow'].mean(), other_gage_df['streamflow'].mean())
 
 #%%
 # Step 10: From our original plots of the spatial
