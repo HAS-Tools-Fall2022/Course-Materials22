@@ -1,7 +1,12 @@
 #%%
 # This overview will cover the basics of 
 # the data structures, concepts, and capabilities 
-# of xarray
+# of xarray. Before getting started make sure you 
+# install all of the necessary pieces with:
+# 
+# NOTE: Added "pooch" to installed packages"
+# `conda install -c conda-forge xarray dask zarr fsspec aiohttp requests pooch`
+#
 import numpy as np
 import matplotlib.pyplot as plt
 import xarray as xr
