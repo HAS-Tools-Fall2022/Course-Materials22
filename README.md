@@ -29,6 +29,7 @@ Throughout the course we'll be amassing a lot of different resources that you ca
 - [USGS National Water Information Systems Mapper](https://maps.waterdata.usgs.gov/mapper/index.html)
 - [Python data science handbook (free online textbook)](https://jakevdp.github.io/PythonDataScienceHandbook/)
 - [Earth data science textbook (free)](https://www.earthdatascience.org/courses/intro-to-earth-data-science/)
+- [xarray tutorial](https://mybinder.org/v2/gh/xarray-contrib/xarray-tutorial/HEAD?labpath=workshops/scipy2022/index.ipynb)
 
 ## More to come
 
