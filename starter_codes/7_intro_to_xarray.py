@@ -144,8 +144,9 @@ print(first_time_sel == first_time_isel)
 # so that we pull out the closest latitude and longitude
 # to the points specified. Try running without that
 # and see if you can figure out why the error occurs!
+#
 tucson_lat = 32.2540
-tucson_lon = 110.9742
+tucson_lon = 360.0 - 110.9742
 
 tucson_ds = ds.sel(
     lat=tucson_lat, 
