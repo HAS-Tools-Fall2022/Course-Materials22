@@ -5,7 +5,7 @@
 # install all of the necessary pieces with:
 # 
 # NOTE: Added "pooch" to installed packages"
-# `conda install -c conda-forge xarray dask zarr fsspec aiohttp requests pooch`
+# `conda install -c conda-forge xarray dask netcdf4 zarr fsspec aiohttp requests pooch`
 #
 import numpy as np
 import matplotlib.pyplot as plt
